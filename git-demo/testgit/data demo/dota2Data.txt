@@ -1,0 +1,25 @@
+const heroes = [
+            {
+              "name": "antimage",
+              "id": 1,
+              "localized_name": "Anti-Mage"
+            },
+            {
+              "name": "axe",
+              "id": 2,
+              "localized_name": "Axe"
+            },{
+              "name": "bane",
+              "id": 3,
+              "localized_name": "Bane"
+          },
+          {
+              "name": "bloodseeker",
+              "id": 4,
+              "localized_name": "Bloodseeker"
+          },
+          {
+              "name": "crystal_maiden",
+              "id": 5,
+              "localized_name": "Crystal Maiden"
+          } ];
