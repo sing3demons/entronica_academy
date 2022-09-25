@@ -1,0 +1,25 @@
+
+@apiUrl=http://localhost:3000
+POST  {{apiUrl}}/register  HTTP/1.1
+Content-Type: application/json
+
+{
+    "username": "sing",
+    "password": "123456",
+    "email": "sing@dev.com",
+    "phone": "098765432",
+    "age": 26
+}
+###
+
+POST {{apiUrl}}/login
+Content-Type: application/json
+
+{
+   "email": "sing@dev.com",
+    "password": "123456"
+}
+
+###
+
+GET {{apiUrl}}/user HTTP/1.1

@@ -1,0 +1,19 @@
+version: '3.9'
+services:
+  mongo:
+    image: mongo:5
+    container_name: "mongo"
+    restart: always
+    ports: 
+        - 27017:27017
+    volumes: 
+        - .mongodbdata:/data/db
+  webapi:
+   build: .
+   container_name: 'webapi'
+   depends_on:
+    - mongo
+   ports:
+     - 3000:3000 
+   environment:
+    - MONGO_URI=mongodb://mongo:27017/test-api
