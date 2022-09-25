@@ -15,8 +15,8 @@ export const register = async (req: Request, res: Response) => {
       })
     } else {
       //encrypt the password
-      const salt = await bcrypt.genSalt(10)
-      const hashPwd = await bcrypt.hash(password, salt)
+      const salt: string = await bcrypt.genSalt(10)
+      const hashPwd: string = await bcrypt.hash(password, salt)
 
       // create and store the new user
       const result = await User.create({

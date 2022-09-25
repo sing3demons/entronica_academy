@@ -1,6 +1,6 @@
 import initMongodb from './db-mongo'
 
-const startup = (): void => {
+const startup = async (): Promise<void> => {
   try {
     initMongodb()
   } catch (error: any) {

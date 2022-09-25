@@ -1,7 +1,7 @@
-import { Schema, model } from 'mongoose'
+import { Schema, model, Model } from 'mongoose'
 import { IUser } from './IUser'
 
-const userSchema = new Schema<IUser>(
+const userSchema: Schema = new Schema<IUser>(
   {
     username: {
       type: String,
@@ -38,6 +38,6 @@ const userSchema = new Schema<IUser>(
   }
 )
 
-const User = model<IUser>('User', userSchema)
+const User: Model<IUser> = model<IUser>('User', userSchema)
 
 export default User
