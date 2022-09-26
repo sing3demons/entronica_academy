@@ -1,0 +1,64 @@
+<div class="container">
+    <h3 class="text-center mt-3">Register</h3> <br>
+    <form (ngSubmit)="onSubmit(registrationForm)" #registrationForm="ngForm">
+        <div class="mx-auto" style="width: 18rem;">
+
+            <div class="mb-3">
+                <label for="username" class="form-label">Username</label>
+                <input type="text" [ngClass]="{'error': isSubmitted&& registrationForm.controls['username'].invalid}"
+                    name="username" class="form-control" [(ngModel)]="registerData.username" required>
+            </div>
+
+            <div class="mb-3">
+
+                Password
+                <input type="password"
+                    [ngClass]="{'error': isSubmitted&& registrationForm.controls['password'].invalid}" name="password"
+                    class="form-control" [(ngModel)]="registerData.password" required>
+            </div>
+            <div class="mb-3">
+                Full Name
+                <input type="text" [ngClass]="{'error': isSubmitted&& registrationForm.controls['name'].invalid}"
+                    name="name" class="form-control" [(ngModel)]="registerData.name" required>
+            </div>
+            <div class="mb-3">
+                Mobile No
+                <input type="text" [ngClass]="{'error': isSubmitted&& registrationForm.controls['mobileNo'].invalid}"
+                    name="mobileNo" class="form-control" [(ngModel)]="registerData.mobileNo" required
+                    pattern="^(0)[6-9]{1}[0-9]{8}|^(999)\d{7}">
+            </div>
+            <div class="mb-3">
+                E-Mail
+                <input type="email" [ngClass]="{'error': isSubmitted&& registrationForm.controls['email'].invalid}"
+                    name="email" class="form-control" [(ngModel)]="registerData.email" required email>
+            </div>
+            <div class="mb-3">
+                Age
+                <input type="text" [ngClass]="{'error': isSubmitted&& registrationForm.controls['age'].invalid}"
+                    name="age" class="form-control" [(ngModel)]="registerData.age" required pattern="^[0-9]*$">
+            </div>
+            <button class="btn btn-primary" type="submit">Sign up</button>
+        </div>
+    </form>
+
+    <br>
+    <div class="container">
+        <div class="card" *ngIf="showUser">
+            <div class="card-header h1 bg-primary">
+                Register Success
+            </div>
+            <div class="card-body">
+                <blockquote class="blockquote mb-0">
+                    <p class="h6">Username: {{showUser.username}}</p>
+                    <p class="h6">Password: {{showUser.password}}</p>
+                    <p class="h6">Full Name: {{showUser.name}}</p>
+                    <p class="h6"> Age: {{showUser.age}}</p>
+                    <p class="h6">Mobile No: {{showUser.mobileNo}}</p>
+                    <p class="h6"> Email: {{showUser.email}}</p>
+                </blockquote>
+
+            </div>
+        </div>
+    </div>
+
+</div>

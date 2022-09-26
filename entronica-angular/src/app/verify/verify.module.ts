@@ -3,10 +3,11 @@ import { CommonModule } from '@angular/common'
 import { LoginComponent } from './login/login.component'
 import { FormsModule } from '@angular/forms'
 
-import { VerifyRoutingModule } from './verify-routing.module'
+import { VerifyRoutingModule } from './verify-routing.module';
+import { RegisterComponent } from './register/register.component'
 
 @NgModule({
-  declarations: [LoginComponent],
+  declarations: [LoginComponent, RegisterComponent],
   imports: [CommonModule, FormsModule, VerifyRoutingModule],
   exports: [LoginComponent],
 })

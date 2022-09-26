@@ -13,7 +13,7 @@ const routes: Routes = [
       import('./user/user.module').then(({ UserModule }) => UserModule),
   },
   {
-    path: '',
+    path: '**',
     redirectTo: 'verify/login',
     pathMatch: 'full',
   },
