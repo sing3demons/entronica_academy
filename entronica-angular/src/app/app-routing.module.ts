@@ -1,23 +1,23 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import { AppComponent } from './app.component';
-import { LoginComponent } from './module/verify/login/login.component';
-import { UserListComponent } from './module/user/user-list/user-list.component';
+import { NgModule } from '@angular/core'
+import { RouterModule, Routes } from '@angular/router'
 
 const routes: Routes = [
   {
-    path: 'login',
-    component: LoginComponent,
+    path: 'verify',
+    loadChildren: () =>
+      import('./verify/verify.module').then(({ VerifyModule }) => VerifyModule),
   },
   {
-    path: 'users',
-    component: UserListComponent,
+    path: 'user',
+    loadChildren: () =>
+      import('./user/user.module').then(({ UserModule }) => UserModule),
   },
   {
     path: '',
-    component: AppComponent,
+    redirectTo: 'verify/login',
+    pathMatch: 'full',
   },
-];
+]
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
