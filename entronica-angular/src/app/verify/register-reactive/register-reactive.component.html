@@ -1,0 +1,62 @@
+<div class="container">
+    <h3 class="text-center mt-3">Register</h3> <br>
+    <form (ngSubmit)="onSubmit()" [formGroup]="registrationForm">
+        <div class="mx-auto" style="width: 18rem;">
+
+            <div class="mb-3">
+                <label for="username" class="form-label">Username</label>
+                <input type="text" [ngClass]="{'error': isSubmitted && registrationForm.controls['username'].invalid}"
+                    formControlName="username" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input type="password"
+                    [ngClass]="{'error': isSubmitted && registrationForm.controls['password'].invalid}"
+                    formControlName="password" class="form-control" required>
+            </div>
+
+            <div class="mb-3">
+                Full Name
+                <input type="text" [ngClass]="{'error': isSubmitted && registrationForm.controls['name'].invalid}"
+                    formControlName="name" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                Mobile No
+                <input type="text" [ngClass]="{'error': isSubmitted && registrationForm.controls['mobileNo'].invalid}"
+                    formControlName="mobileNo" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                E-Mail
+                <input type="email" [ngClass]="{'error': isSubmitted&& registrationForm.controls['email'].invalid}"
+                    formControlName="email" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                Age
+                <input type="text" [ngClass]="{'error': isSubmitted && registrationForm.controls['age'].invalid}"
+                    class="form-control" formControlName="age">
+            </div>
+
+
+            <button class="btn btn-primary" type="submit">Sign up</button>
+        </div>
+    </form>
+
+    <br>
+    <div class="container">
+        <div class="card" *ngIf="isSuccess">
+            <div class="card-header h1 bg-primary">
+                Register Success
+            </div>
+            <div class="card-body">
+                <blockquote class="blockquote mb-0">
+                    <p class="h6">Username: {{registrationForm.controls['username'].value}}</p>
+                    <p class="h6">Password: {{registrationForm.controls['password'].value}}</p>
+                    <p class="h6">Full Name: {{registrationForm.controls['name'].value}}</p>
+                    <p class="h6"> Age: {{registrationForm.controls['age'].value}}</p>
+                    <p class="h6">Mobile No: {{registrationForm.controls['mobileNo'].value}}</p>
+                    <p class="h6"> Email: {{registrationForm.controls['email'].value}}</p>
+                </blockquote>
+
+            </div>
+        </div>
+    </div>
