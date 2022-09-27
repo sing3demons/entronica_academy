@@ -4,6 +4,7 @@ export interface User {
   email: string
   mobileNo: string
   age: number
+  username:string
 }
 
 export interface ResponseUser {
