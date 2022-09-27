@@ -5,12 +5,16 @@ import bcrypt from 'bcrypt'
 const login = async (req: Request, res: Response) => {
   try {
     const { email, password } = req.body
-    const user = await User.findOne({ email: email })
+    let user = await User.findOne({ email: email })
 
     if (!user) {
-      return res
-        .status(401)
-        .json({ resultCode: 40101, resultDescription: 'Access denied' })
+      const userNew = await User.findOne({ username: email })
+      if (!userNew) {
+        return res
+          .status(401)
+          .json({ resultCode: 40101, resultDescription: 'Access denied' })
+      }
+      user = userNew
     }
 
     const validPassword = await bcrypt.compare(password, user.password)

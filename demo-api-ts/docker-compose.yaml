@@ -7,7 +7,7 @@ services:
     ports: 
         - 27017:27017
     volumes: 
-        - .mongodbdata:/data/db
+        - ./mongodbdata:/data/db
   webapi:
    build: .
    image: sing3demons/webapi

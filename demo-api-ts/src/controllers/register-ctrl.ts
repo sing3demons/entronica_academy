@@ -4,7 +4,7 @@ import bcrypt from 'bcrypt'
 
 export const register = async (req: Request, res: Response) => {
   try {
-    const { username, password, email, phone, age } = req.body
+    const { username, password, name, email, mobileNo, age } = req.body
 
     // check for duplicate usernames in the db
     const duplicate = await User.findOne({ username: username })
@@ -23,7 +23,8 @@ export const register = async (req: Request, res: Response) => {
         username: username,
         password: hashPwd,
         email: email,
-        phone: phone,
+        name: name,
+        mobileNo: mobileNo,
         age: age,
         // created: new Date(),
       })
