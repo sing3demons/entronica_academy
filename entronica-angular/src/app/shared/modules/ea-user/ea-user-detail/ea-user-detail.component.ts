@@ -1,15 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core'
+import { User } from 'src/app/shared/model/user.model'
 
 @Component({
-  selector: 'app-ea-user-detail',
+  selector: 'ea-user-detail',
   templateUrl: './ea-user-detail.component.html',
-  styleUrls: ['./ea-user-detail.component.css']
+  styleUrls: ['./ea-user-detail.component.css'],
 })
 export class EaUserDetailComponent implements OnInit {
+  @Input()
+  selectedUser: User | undefined
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }

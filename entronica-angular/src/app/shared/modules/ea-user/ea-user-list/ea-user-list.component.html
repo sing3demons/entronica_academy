@@ -13,18 +13,6 @@
         </div>
     </div>
     <br>
-    <div class="card" *ngIf="selectedUser">
-        <div class="card-header h1 bg-primary">
-            User detail
-        </div>
-        <div class="card-body">
-            <blockquote class="blockquote mb-0">
-                <p class="h6">Name: {{selectedUser.name}} </p>
-                <p class="h6"> Age: {{selectedUser.age}} </p>
-                <p class="h6">Mobile No: {{selectedUser.mobileNo}}</p>
-                <p class="h6"> Email: {{selectedUser.email}} </p>
-            </blockquote>
 
-        </div>
-    </div>
+    <ea-user-detail [selectedUser]="selectedUser"></ea-user-detail>
 </div>
