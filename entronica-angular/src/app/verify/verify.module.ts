@@ -15,6 +15,6 @@ import { RegisterReactiveComponent } from './register-reactive/register-reactive
     VerifyRoutingModule,
     ReactiveFormsModule,
   ],
-  exports: [LoginComponent],
+  exports: [LoginComponent, RegisterComponent, RegisterReactiveComponent],
 })
 export class VerifyModule {}

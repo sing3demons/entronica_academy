@@ -1,5 +1,6 @@
 import express, { Application, Request, Response, NextFunction } from 'express'
 import morgan from 'morgan'
+import cors from 'cors'
 import apiRoutes from './routes/apiRoutes'
 import * as db from './utils/db'
 
@@ -11,6 +12,7 @@ db.startup()
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 app.use(morgan('tiny'))
+app.use(cors())
 
 app.get('/healthz', (req: Request, res: Response) => {
   return res.status(200)

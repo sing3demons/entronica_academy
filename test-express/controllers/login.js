@@ -24,8 +24,8 @@ exports.login = async (req, res) => {
       throw error
     }
 
-    res.status(201).json({
-      resultCode: 20100,
+    res.status(200).json({
+      resultCode: 20000,
       resultDescription: 'Success',
       resultData: {
         users: user,

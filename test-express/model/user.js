@@ -6,6 +6,10 @@ const userSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    name: {
+      type: String,
+      required: true,
+    },
     password: {
       type: String,
       required: true,
@@ -19,7 +23,7 @@ const userSchema = new mongoose.Schema(
       required: 'Email address is required',
       required: true,
     },
-    phone: {
+    mobileNo: {
       type: String,
       required: true,
     },

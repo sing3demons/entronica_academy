@@ -7,7 +7,7 @@ Content-Type: application/json
     "username": "sing",
     "password": "123456",
     "email": "sing@dev.com",
-    "phone": "098765432",
+    "mobileNo": "098765432",
     "age": 26
 }
 ###

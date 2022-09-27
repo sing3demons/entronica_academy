@@ -5,7 +5,7 @@
         </div>
         <div class="card-body">
             <ul class="list-group list-group-flush" *ngFor="let user of users; let i=index">
-                <li class="list-group-item" [ngClass]="selectedUser?.id===user.id ? 'active': ''  "
+                <li class="list-group-item" [ngClass]="selectedUser?._id===user._id ? 'active': ''  "
                     (click)="showDetail(user)">
                     user: ({{i + 1}}) -
                     {{user.name}}</li>
@@ -19,6 +19,7 @@
         </div>
         <div class="card-body">
             <blockquote class="blockquote mb-0">
+                <p class="h6">ID: {{selectedUser._id}} </p>
                 <p class="h6">Name: {{selectedUser.name}} </p>
                 <p class="h6"> Age: {{selectedUser.age}} </p>
                 <p class="h6">Mobile No: {{selectedUser.mobileNo}}</p>
@@ -27,4 +28,5 @@
 
         </div>
     </div>
+
 </div>

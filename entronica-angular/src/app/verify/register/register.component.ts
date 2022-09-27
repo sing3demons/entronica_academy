@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core'
 import { NgForm } from '@angular/forms'
+import { UserService } from 'src/app/services/user.service'
+import { Router } from '@angular/router'
 
 interface IUser {
   username: ''
@@ -25,7 +27,7 @@ export class RegisterComponent implements OnInit {
   }
 
   isSubmitted = false
-  constructor() {}
+  constructor(private userService: UserService, private router: Router) {}
 
   ngOnInit(): void {}
   onSubmit(registrationForm: NgForm): void {
@@ -41,8 +43,16 @@ export class RegisterComponent implements OnInit {
     let name = registrationForm.form.controls['name'].value
     let mobileNo = registrationForm.form.controls['mobileNo'].value
     let email = registrationForm.form.controls['email'].value
-
-    this.showDetail({ username, password, age, name, mobileNo, email })
+    this.userService
+      .register(username, password, age, name, mobileNo, email)
+      .subscribe((data) => {
+        if (data.resultCode !== 20100) {
+          alert('login fail: ' + data.resultCode)
+          return
+        }
+        this.router.navigate(['verify/login'])
+      })
+    // this.showDetail({ username, password, age, name, mobileNo, email })
   }
   showUser: IUser | undefined
   showDetail(user: IUser): void {

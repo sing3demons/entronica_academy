@@ -1,6 +1,13 @@
 import { Request, Response } from 'express'
 import User from '../models/User'
 
+interface resultD {
+  id: string
+  name: string
+  email: string
+  mobileNo: string
+  age: number
+}
 export const getUser = async (req: Request, res: Response) => {
   try {
     const result = await User.find({})
