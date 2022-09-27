@@ -22,12 +22,12 @@ exports.users = async (req, res) => {
 exports.user = async (req, res) => {
   try {
     const { id } = req.params
-    const user = await User.findById(id)
+    const users = await User.findById(id)
     res.status(200).json({
       resultCode: 20000,
       resultDescription: 'Success',
       resultData: {
-        user: user,
+        users,
       },
     })
   } catch (error) {

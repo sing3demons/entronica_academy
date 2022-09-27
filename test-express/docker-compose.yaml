@@ -7,7 +7,7 @@ services:
     ports: 
         - 27017:27017
     volumes: 
-        - .gomongodbdata:/data/db
+        - ./mongodbdata:/data/db
   webapi:
    build: .
    container_name: webapi
