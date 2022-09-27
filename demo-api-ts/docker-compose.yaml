@@ -10,6 +10,7 @@ services:
         - .mongodbdata:/data/db
   webapi:
    build: .
+   image: sing3demons/webapi
    container_name: 'webapi'
    depends_on:
     - mongo
