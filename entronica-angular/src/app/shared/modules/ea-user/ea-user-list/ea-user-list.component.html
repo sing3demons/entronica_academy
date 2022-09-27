@@ -4,7 +4,7 @@
             All User
         </div>
         <div class="card-body">
-            <ul class="list-group list-group-flush" *ngFor="let user of users; let i=index">
+            <ul class="list-group list-group-flush" *ngFor="let user of userList; let i=index">
                 <li class="list-group-item" [ngClass]="selectedUser?.id===user.id ? 'active': ''  "
                     (click)="showDetail(user)">
                     user: ({{i + 1}}) -

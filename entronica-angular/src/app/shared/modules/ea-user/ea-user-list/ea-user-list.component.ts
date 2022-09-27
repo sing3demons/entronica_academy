@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core'
-import { User } from 'src/app/model/user.model'
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core'
+import { User } from 'src/app/shared/model/user.model'
 import { UserService } from 'src/app/services/user.service'
 
 @Component({
@@ -8,13 +8,24 @@ import { UserService } from 'src/app/services/user.service'
   styleUrls: ['./ea-user-list.component.css'],
 })
 export class EaUserListComponent implements OnInit {
-  constructor(private userService: UserService) {}
-  users: User[] = []
+  // selectedUser: User | undefined
+  @Input()
+  userList: User[] = []
+  @Input()
   selectedUser: User | undefined
+
+  @Output()
+  onSelectUser: EventEmitter<User> = new EventEmitter<User>()
+
+  constructor() {}
+
+  // users: User[] = []
   ngOnInit(): void {
-    this.users = this.userService.getAllUsers()
+    // this.users = this.userService.getAllUsers()
   }
+  
   showDetail(user: User): void {
     this.selectedUser = user
+    this.onSelectUser.emit(user)
   }
 }
