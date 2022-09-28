@@ -37,22 +37,49 @@ export class RegisterComponent implements OnInit {
       return
     }
 
-    let username = registrationForm.form.controls['username'].value
-    let password = registrationForm.form.controls['password'].value
-    let age = registrationForm.form.controls['age'].value
-    let name = registrationForm.form.controls['name'].value
-    let mobileNo = registrationForm.form.controls['mobileNo'].value
-    let email = registrationForm.form.controls['email'].value
+    // let username = registrationForm.form.controls['username'].value
+    // let password = registrationForm.form.controls['password'].value
+    // let age = registrationForm.form.controls['age'].value
+    // let name = registrationForm.form.controls['name'].value
+    // let mobileNo = registrationForm.form.controls['mobileNo'].value
+    // let email = registrationForm.form.controls['email'].value
+
+    //   this.userService
+    //     .register(username, password, age, name, mobileNo, email)
+    //     .subscribe({
+    //       next: (data) => {
+    //         if (data.resultCode !== 20100) {
+    //           alert('login fail: ' + data.resultCode)
+    //           return
+    //         }
+    //         this.router.navigate(['verify/login'])
+    //       },
+    //       error: (err) => {
+    //         console.log(err.error)
+    //       },
+    //     })
+    // }
     this.userService
-      .register(username, password, age, name, mobileNo, email)
-      .subscribe((data) => {
-        if (data.resultCode !== 20100) {
-          alert('login fail: ' + data.resultCode)
-          return
-        }
-        this.router.navigate(['verify/login'])
+      .register(
+        this.registerData.username,
+        this.registerData.password,
+        +this.registerData.age,
+        this.registerData.name,
+        this.registerData.mobileNo,
+        this.registerData.email
+      )
+      .subscribe({
+        next: (data) => {
+          if (data.resultCode !== 20100) {
+            alert('login fail: ' + data.resultCode)
+            return
+          }
+          this.router.navigate(['verify/login'])
+        },
+        error: (err) => {
+          console.log(err.error)
+        },
       })
-    // this.showDetail({ username, password, age, name, mobileNo, email })
   }
   showUser: IUser | undefined
   showDetail(user: IUser): void {
