@@ -44,21 +44,6 @@ export class RegisterComponent implements OnInit {
     // let mobileNo = registrationForm.form.controls['mobileNo'].value
     // let email = registrationForm.form.controls['email'].value
 
-    //   this.userService
-    //     .register(username, password, age, name, mobileNo, email)
-    //     .subscribe({
-    //       next: (data) => {
-    //         if (data.resultCode !== 20100) {
-    //           alert('login fail: ' + data.resultCode)
-    //           return
-    //         }
-    //         this.router.navigate(['verify/login'])
-    //       },
-    //       error: (err) => {
-    //         console.log(err.error)
-    //       },
-    //     })
-    // }
     this.userService
       .register(
         this.registerData.username,
