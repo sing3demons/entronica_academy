@@ -1,0 +1,13 @@
+{
+  "apps": [
+    {
+      "name": "node_backend",
+      "instances": 1,
+      "script": "app.js",
+      "exec_mode": "fork",
+      "env": {
+        "PORT": "3000"
+      }
+    }
+  ]
+}
